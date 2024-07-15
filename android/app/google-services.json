@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "400120872345",
+    "project_id": "animena-501bf",
+    "storage_bucket": "animena-501bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400120872345:android:604e995cc95d96f0bde708",
+        "android_client_info": {
+          "package_name": "com.example.animena"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeIV_mb2s5tqeOishhZLA_Biz-TgmUAO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
