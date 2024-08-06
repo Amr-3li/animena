@@ -1,5 +1,4 @@
 import 'package:animena/views/pages/app_pages/anime_list_category.dart';
-import 'package:animena/views/widgets/anime_list.dart';
 import 'package:flutter/material.dart';
 
 class AnimeCategory extends StatelessWidget {
@@ -20,13 +19,13 @@ class AnimeCategory extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Color.fromARGB(200, 6, 68, 58),
+            color: const Color.fromARGB(200, 6, 68, 58),
           ),
           width: 190,
           height: 190,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Image.asset(
@@ -35,12 +34,12 @@ class AnimeCategory extends StatelessWidget {
                 width: 110,
                 color: Colors.white,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 data[1],
-                style: TextStyle(color: Colors.white, fontSize: 23),
+                style: const TextStyle(color: Colors.white, fontSize: 23),
               ),
             ],
           ),

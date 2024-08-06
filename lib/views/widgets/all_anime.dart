@@ -1,8 +1,9 @@
-import 'package:animena/bloc/anime_cubit.dart';
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/data/repository/anime_repo.dart';
 import 'package:animena/data/wepServices/anime_web_ser.dart';
-import 'package:animena/views/widgets/anime_Card.dart';
 import 'package:animena/views/widgets/anime_list.dart';
 import 'package:flutter/material.dart';
 
@@ -38,49 +39,47 @@ class _AllAnimeState extends State<AllAnime> {
         allAnime.addAll(l);
       });
     } catch (e) {
-      // Handle errors here, e.g., show a message to the user
-      print('Failed to fetch animes: $e');
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(e.toString()),
+      ));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // height: 800,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "   ${widget.name}",
-            style: TextStyle(fontSize: 23, color: Colors.white),
-          ),
-          isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : AnimeList(allAnime: allAnime),
-          SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStatePropertyAll(Color.fromARGB(255, 8, 31, 8))),
-              onPressed: () {
-                getAnimes();
-              },
-              child: Row(
-                children: [
-                  Text(
-                    "more animes   ",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    color: Colors.white,
-                  )
-                ],
-              )),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "   ${widget.name}",
+          style: const TextStyle(fontSize: 23, color: Colors.white),
+        ),
+        isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : AnimeList(allAnime: allAnime),
+        const SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+            style: const ButtonStyle(
+                backgroundColor:
+                    WidgetStatePropertyAll(Color.fromARGB(255, 8, 31, 8))),
+            onPressed: () {
+              getAnimes();
+            },
+            child: const Row(
+              children: [
+                Text(
+                  "more animes   ",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                Icon(
+                  Icons.arrow_forward,
+                  color: Colors.white,
+                )
+              ],
+            )),
+      ],
     );
   }
 }

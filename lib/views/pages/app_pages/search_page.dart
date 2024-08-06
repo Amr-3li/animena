@@ -1,4 +1,4 @@
-import 'package:animena/bloc/anime_cubit.dart';
+import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/data/repository/anime_repo.dart';
 import 'package:animena/data/wepServices/anime_web_ser.dart';

@@ -1,8 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:animena/views/pages/app_pages/bottom_navigator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'views/pages/login_screen.dart';
+import 'views/pages/auth/login_screen.dart';
 
 class Initialpage extends StatefulWidget {
   const Initialpage({super.key});
@@ -13,23 +16,30 @@ class Initialpage extends StatefulWidget {
 
 class _InitialpageState extends State<Initialpage> {
   FirebaseAuth instance = FirebaseAuth.instance;
-
+  SharedPreferences? sharedPreferences;
   @override
   void initState() {
     super.initState();
-    instance.authStateChanges().listen((user) {
-      if (user != null) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => BottomNavigator()));
-      } else {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
-      }
-    });
+    getState();
+  }
+
+  getState() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    if (sharedPreferences!.getString('email') != null) {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const BottomNavigator()));
+    } else {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const LoginPage()));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(color: Colors.black),
+      ),
+    );
   }
 }
