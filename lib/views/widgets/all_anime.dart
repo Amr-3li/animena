@@ -2,10 +2,9 @@
 
 import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/data/models/Anime_model.dart';
-import 'package:animena/data/repository/anime_repo.dart';
-import 'package:animena/data/wepServices/anime_web_ser.dart';
 import 'package:animena/views/widgets/anime_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AllAnime extends StatefulWidget {
   const AllAnime({
@@ -22,12 +21,11 @@ class AllAnime extends StatefulWidget {
 class _AllAnimeState extends State<AllAnime> {
   AnimeCubit? animeCubit;
   List<Anime> allAnime = [];
-  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    animeCubit = AnimeCubit(AnimeRepository(AnimeWebService()));
+    animeCubit = BlocProvider.of<AnimeCubit>(context);
     getAnimes();
   }
 
@@ -35,7 +33,6 @@ class _AllAnimeState extends State<AllAnime> {
     try {
       List<Anime> l = await animeCubit!.getAnimes();
       setState(() {
-        isLoading = false;
         allAnime.addAll(l);
       });
     } catch (e) {
@@ -47,39 +44,43 @@ class _AllAnimeState extends State<AllAnime> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "   ${widget.name}",
-          style: const TextStyle(fontSize: 23, color: Colors.white),
-        ),
-        isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : AnimeList(allAnime: allAnime),
-        const SizedBox(
-          height: 20,
-        ),
-        ElevatedButton(
-            style: const ButtonStyle(
-                backgroundColor:
-                    WidgetStatePropertyAll(Color.fromARGB(255, 8, 31, 8))),
-            onPressed: () {
-              getAnimes();
-            },
-            child: const Row(
-              children: [
-                Text(
-                  "more animes   ",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-                Icon(
-                  Icons.arrow_forward,
-                  color: Colors.white,
-                )
-              ],
-            )),
-      ],
+    return BlocBuilder<AnimeCubit, AnimeState>(
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "   ${widget.name}",
+              style: const TextStyle(fontSize: 23, color: Colors.white),
+            ),
+            state is AnimeLoading
+                ? const Center(child: CircularProgressIndicator())
+                : AnimeList(allAnime: allAnime),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+                style: const ButtonStyle(
+                    backgroundColor:
+                        WidgetStatePropertyAll(Color.fromARGB(255, 8, 31, 8))),
+                onPressed: () {
+                  getAnimes();
+                },
+                child: const Row(
+                  children: [
+                    Text(
+                      "more animes   ",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    )
+                  ],
+                )),
+          ],
+        );
+      },
     );
   }
 }

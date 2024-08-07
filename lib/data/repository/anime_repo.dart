@@ -126,4 +126,6 @@ class AnimeRepository {
      }
      return result;
    }
+
+  getSearchAnimes(String s) {}
 }

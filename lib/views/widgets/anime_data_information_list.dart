@@ -12,42 +12,43 @@ class AnimeDataInformationList extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color.fromARGB(70, 142, 192, 104),
+          color: const Color.fromARGB(70, 142, 192, 104),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             AnimeDataInformation(
                 text: "Start date", description: anime.startDate!),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             AnimeDataInformation(text: "End date", description: anime.endDate!),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             AnimeDataInformation(text: "Status", description: anime.status!),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             AnimeDataInformation(
                 text: "japanese name ", description: anime.nameJp!),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
-               AnimeDataInformation(
+               const AnimeDataInformation(
                   text: "Description ", description: ""),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Text(
               " ${anime.description!}",
               maxLines: 50,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(color: Colors.white70, fontSize: 17),
+              style: const TextStyle(color: Colors.white70, fontSize: 17),
+
             ),
 
           ],

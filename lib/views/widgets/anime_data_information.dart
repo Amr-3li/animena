@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AnimeDataInformation extends StatelessWidget {
@@ -10,18 +9,18 @@ class AnimeDataInformation extends StatelessWidget {
       verticalDirection: VerticalDirection.down,
 crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
-          " ${text} : ",
-          style: TextStyle(color: Colors.white, fontSize: 19),
+          " $text : ",
+          style: const TextStyle(color: Colors.white, fontSize: 19),
         ),
-        SizedBox(width: 30),
+        const SizedBox(width: 30),
         Flexible(
           child: Text(
-            " ${description}",
+            " $description",
             maxLines: 20,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: Colors.white70, fontSize: 17),
+            style: const TextStyle(color: Colors.white70, fontSize: 17),
           ),
         ),
       ],

@@ -8,7 +8,7 @@ class AnimeNumInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(200, 94, 107, 92),
+        color: const Color.fromARGB(200, 94, 107, 92),
         borderRadius: BorderRadius.circular(10),
       ),
       width: 100,
@@ -16,20 +16,20 @@ class AnimeNumInformation extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
          icon!,
           Text(
             text!,
-            style: TextStyle(fontSize: 15, color: Colors.white),
+            style: const TextStyle(fontSize: 15, color: Colors.white),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Text(
             name!,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 15,
                 color: Color.fromARGB(200, 189, 189, 189)),
             maxLines: 2,

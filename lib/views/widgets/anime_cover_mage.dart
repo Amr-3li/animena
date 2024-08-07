@@ -9,12 +9,12 @@ class AnimeCoverImage extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 300,
-      color: Color.fromARGB(255, 8, 31, 8),
+      color: const Color.fromARGB(255, 8, 31, 8),
       alignment: Alignment.topCenter,
       child: Container(
         width: double.infinity,
         height: 200,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
 
         ),
         child: CachedNetworkImage(imageUrl: image,fit: BoxFit.cover,),

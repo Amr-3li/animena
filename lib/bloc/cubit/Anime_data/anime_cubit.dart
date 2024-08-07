@@ -1,5 +1,8 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:animena/data/repository/anime_repo.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import '../../../data/models/Anime_model.dart';
@@ -8,6 +11,8 @@ part 'anime_state.dart';
 
 class AnimeCubit extends Cubit<AnimeState> {
   AnimeRepository animeRepository;
+  @override
+ 
 
   AnimeCubit(this.animeRepository) : super(AnimeInitial());
   Future<List<Anime>> getAnimes() async {
@@ -19,7 +24,7 @@ class AnimeCubit extends Cubit<AnimeState> {
         emit(AnimeLoaded(value));
         animes = value;
       });
-      emit(AnimeLoaded(animes));
+     
       return animes;
     } on Exception catch (e) {
       emit(AnimeError(e.toString()));
@@ -32,10 +37,10 @@ class AnimeCubit extends Cubit<AnimeState> {
     try {
       List<Anime> animes = [];
       await animeRepository.getCategoryAnimes(s).then((value) {
-        emit(AnimeLoaded(value));
+        emit(AnimeCategoryLoaded(value));
         animes = value;
       });
-      emit(AnimeCategoryLoaded(animes));
+      
       return animes;
     } on Exception catch (e) {
       AnimeCategoryError(e.toString());
@@ -48,10 +53,9 @@ class AnimeCubit extends Cubit<AnimeState> {
     try {
       List<Anime> animes = [];
       await animeRepository.getAllSearchAnimes(s).then((value) {
-        emit(AnimeLoaded(value));
+        emit(AnimeSearchLoaded(value));
         animes = value;
       });
-      emit(AnimeSearchLoaded(animes));
       return animes;
     } on Exception catch (e) {
       AnimeSearchError(e.toString());
@@ -64,10 +68,9 @@ class AnimeCubit extends Cubit<AnimeState> {
     try {
       List<Anime> animes = [];
       await animeRepository.getRatingAnimes().then((value) {
-        emit(AnimeLoaded(value));
+        emit(AnimeMostRatingLoaded(value));
         animes = value;
       });
-      emit(AnimeMostRatingLoaded(animes));
       return animes;
     } on Exception catch (e) {
       AnimeMostFavoriteError(e.toString());
@@ -80,7 +83,6 @@ class AnimeCubit extends Cubit<AnimeState> {
     try {
       List<Anime> animes = [];
       await animeRepository.getFavAnimes().then((value) {
-        emit(AnimeLoaded(value));
         emit(AnimeCategoryLoaded(animes));
         animes = value;
       });

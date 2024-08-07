@@ -6,16 +6,16 @@ class SearchTextFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(top: 5,left: 30),
+        padding: const EdgeInsets.only(top: 5,left: 30),
         width: 200,
         height: 100,
         child: TextFormField(
           cursorColor: Colors.white,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "Search",
             hintStyle: TextStyle(color: Colors.grey),
             border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),

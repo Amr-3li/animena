@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, use_build_context_synchronously
+
 import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/data/repository/anime_repo.dart';
 import 'package:animena/views/pages/app_pages/search_page.dart';
@@ -5,6 +7,7 @@ import 'package:animena/views/widgets/all_anime.dart';
 import 'package:animena/views/widgets/appar_text.dart';
 import 'package:animena/views/widgets/spcific_anime.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/Anime_model.dart';
 import '../../../data/wepServices/anime_web_ser.dart';
@@ -24,18 +27,17 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    animeCubit = AnimeCubit(AnimeRepository(AnimeWebService()));
+    animeCubit = BlocProvider.of<AnimeCubit>(context);
     getAnimes();
   }
 
   Future<void> getAnimes() async {
     try {
       rating_animes = await animeCubit!.getRatingAnimes();
-      fav_animes = await animeCubit!.getFavAnimes();
 
-      setState(() {
-        isLoading = false;
-      });
+      fav_animes = await animeCubit!.getFavAnimes();
+      
+      setState(() {});
     } catch (e) {
       print('Failed to fetch animes: $e');
     }
@@ -43,70 +45,78 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 8, 31, 8),
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: ApparText(name: "Animena"),
-        ),
-        backgroundColor: Color.fromARGB(255, 22, 89, 22),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SearchPage(),
-                    ));
-              },
-              icon: Icon(Icons.search),
-              color: Colors.white,
-              iconSize: 30,
+    return BlocBuilder<AnimeCubit, AnimeState>(
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: const Color.fromARGB(255, 8, 31, 8),
+          appBar: AppBar(
+            title: const Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: ApparText(name: "Animena"),
             ),
-          )
-        ],
-      ),
-      body: isLoading
-          ? Center(child: CircularProgressIndicator())
-          : SingleChildScrollView(
-              child: Container(
-                color: Color.fromARGB(255, 8, 31, 8),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Spicific_widget(
-                        animes: fav_animes, name: "Most favorite Anime"),
-                    Divider(
-                      height: 0.5,
-                      color: Colors.white,
-                      endIndent: 50,
-                      indent: 50,
-                    ),
-                    Spicific_widget(
-                      animes: rating_animes,
-                      name: "Most Rating Anime",
-                    ),
-                    Divider(
-                      height: 0.5,
-                      color: Colors.white,
-                      endIndent: 50,
-                      indent: 50,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    AllAnime(
-                      name: "All Animes",
-                    )
-                  ],
+            backgroundColor: const Color.fromARGB(255, 22, 89, 22),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SearchPage(),
+                        ));
+                  },
+                  icon: const Icon(Icons.search),
+                  color: Colors.white,
+                  iconSize: 30,
                 ),
+              )
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: Container(
+              color: const Color.fromARGB(255, 8, 31, 8),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  state is AnimeMostFavoriteLoading && fav_animes.isEmpty
+                      ? const Center(child: CircularProgressIndicator())
+                      : Spicific_widget(
+                          animes: fav_animes, name: "Most favorite Anime"),
+                  const Divider(
+                    height: 0.5,
+                    color: Colors.white,
+                    endIndent: 50,
+                    indent: 50,
+                  ),
+                  state is AnimeMostRatingLoading && rating_animes.isEmpty
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : Spicific_widget(
+                          animes: rating_animes,
+                          name: "Most Rating Anime",
+                        ),
+                  const Divider(
+                    height: 0.5,
+                    color: Colors.white,
+                    endIndent: 50,
+                    indent: 50,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const AllAnime(
+                    name: "All Animes",
+                  )
+                ],
               ),
             ),
+          ),
+        );
+      },
     );
   }
 }

@@ -8,14 +8,14 @@ class AnimePosterImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(100),
-      child: Container(
+      child: SizedBox(
         width: 180,
         height: 180,
         child: CachedNetworkImage(
           fit: BoxFit.fill,
           imageUrl: name,
           filterQuality: FilterQuality.low,
-          placeholderFadeInDuration: Duration(seconds: 5),
+          placeholderFadeInDuration: const Duration(seconds: 5),
         ),
       ),
     );

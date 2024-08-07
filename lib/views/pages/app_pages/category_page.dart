@@ -20,14 +20,14 @@ class CategoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: ApparText(name: "Categorys"),
+        title: const ApparText(name: "Categorys"),
         backgroundColor: Colors.teal,
       ),
-      backgroundColor: Color.fromARGB(255, 8, 31, 8),
+      backgroundColor: const Color.fromARGB(255, 8, 31, 8),
       body: GridView.builder(
         itemCount: categories.length,
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
           return AnimeCategory(data: categories[index]);
         },

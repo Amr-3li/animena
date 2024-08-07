@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/views/pages/app_pages/anime_details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -20,18 +21,18 @@ class AnimeCard extends StatelessWidget {
           ));
         },
         child: Container(
-          padding: EdgeInsets.all(2),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.all(2),
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(15)),
           ),
           width: 125,
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 160,
                 width: 125,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
                   child: CachedNetworkImage(
                     fit: BoxFit.cover,
                     width: double.infinity,
@@ -48,33 +49,33 @@ class AnimeCard extends StatelessWidget {
                     placeholder: (context, url) => Container(
                       height: 160,
                       width: 125,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 84, 103, 76),
                           borderRadius: BorderRadius.all(Radius.circular(15))),
                     ),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 3,
               ),
               anime!.nameEn != ""
                   ? Text(
-                      "  " + anime!.nameEn!,
-                      style: TextStyle(color: Colors.white, fontSize: 11),
+                      "  ${anime!.nameEn!}",
+                      style: const TextStyle(color: Colors.white, fontSize: 11),
                       maxLines: 1,
                       overflow: TextOverflow.fade,
                     )
                   : Text(
-                      "  " + anime!.nameEnJp!,
-                      style: TextStyle(color: Colors.white, fontSize: 11),
+                      "  ${anime!.nameEnJp!}",
+                      style: const TextStyle(color: Colors.white, fontSize: 11),
                       maxLines: 1,
                       overflow: TextOverflow.fade,
                     ),
               Text(
-                reting[0] + "." + reting[1] + "  🌟",
-                style: TextStyle(
+                "${reting[0]}.${reting[1]}  🌟",
+                style: const TextStyle(
                     color: Color.fromARGB(255, 121, 121, 121), fontSize: 13),
               ),
             ],

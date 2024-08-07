@@ -13,37 +13,37 @@ class AnimeNumInformationList extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           AnimeNumInformation(
             text: rating,
             name: "Rating",
-            icon: Icon(
+            icon: const Icon(
               Icons.star,
               color: Colors.yellow,
               size: 30,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 30,
           ),
           AnimeNumInformation(
             text: anime.favoritesCount!.toString(),
             name: "FavoriteCount",
-            icon: Icon(
+            icon: const Icon(
               Icons.favorite,
               color: Colors.grey,
               size: 30,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 30,
           ),
           AnimeNumInformation(
             text: anime.userCount.toString(),
             name: "UserCount",
-            icon: Icon(
+            icon: const Icon(
               Icons.remove_red_eye,
               color: Colors.grey,
               size: 30,
