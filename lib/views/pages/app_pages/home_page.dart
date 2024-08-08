@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, use_build_context_synchronously
 
 import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
-import 'package:animena/data/repository/anime_repo.dart';
 import 'package:animena/views/pages/app_pages/search_page.dart';
 import 'package:animena/views/widgets/all_anime.dart';
 import 'package:animena/views/widgets/appar_text.dart';
@@ -10,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/Anime_model.dart';
-import '../../../data/wepServices/anime_web_ser.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,7 +34,7 @@ class _HomePageState extends State<HomePage> {
       rating_animes = await animeCubit!.getRatingAnimes();
 
       fav_animes = await animeCubit!.getFavAnimes();
-      
+
       setState(() {});
     } catch (e) {
       print('Failed to fetch animes: $e');

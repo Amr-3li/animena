@@ -21,6 +21,7 @@ class _AnimeListCategoryState extends State<AnimeListCategory> {
   void initState() {
     super.initState();
     animeCubit = BlocProvider.of<AnimeCubit>(context);
+
     getAnimes();
   }
 

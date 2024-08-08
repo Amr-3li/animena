@@ -1,6 +1,12 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
+import 'package:animena/data/repository/anime_repo.dart';
+import 'package:animena/data/wepServices/anime_web_ser.dart';
 import 'package:animena/views/widgets/anime_caregory.dart';
 import 'package:animena/views/widgets/appar_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryPage extends StatelessWidget {
   List<List<String>> categories = [
@@ -16,21 +22,26 @@ class CategoryPage extends StatelessWidget {
     ["assets/Images/adventure.png", "adventure"],
   ];
 
+  CategoryPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const ApparText(name: "Categorys"),
-        backgroundColor: Colors.teal,
-      ),
-      backgroundColor: const Color.fromARGB(255, 8, 31, 8),
-      body: GridView.builder(
-        itemCount: categories.length,
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (context, index) {
-          return AnimeCategory(data: categories[index]);
-        },
+    return BlocProvider(
+      create: (context) => AnimeCubit(AnimeRepository(AnimeWebService())),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const ApparText(name: "Categorys"),
+          backgroundColor: Colors.teal,
+        ),
+        backgroundColor: const Color.fromARGB(255, 8, 31, 8),
+        body: GridView.builder(
+          itemCount: categories.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
+          itemBuilder: (context, index) {
+            return AnimeCategory(data: categories[index]);
+          },
+        ),
       ),
     );
   }

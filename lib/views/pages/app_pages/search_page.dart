@@ -1,7 +1,5 @@
 import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/data/models/Anime_model.dart';
-import 'package:animena/data/repository/anime_repo.dart';
-import 'package:animena/data/wepServices/anime_web_ser.dart';
 import 'package:animena/views/widgets/anime_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -89,26 +87,7 @@ class _SearchPageState extends State<SearchPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        // ElevatedButton(
-                        //     style:const ButtonStyle(
-                        //         backgroundColor: MaterialStatePropertyAll(
-                        //             Color.fromARGB(255, 8, 31, 8))),
-                        //     onPressed: () {
-                        //       getAnimes();
-                        //     },
-                        //     child: Row(
-                        //       children: [
-                        //         Text(
-                        //           "next   ",
-                        //           style:
-                        //           TextStyle(fontSize: 20, color: Colors.white),
-                        //         ),
-                        //         Icon(
-                        //           Icons.arrow_forward,
-                        //           color: Colors.white,
-                        //         )
-                        //       ],
-                        //     )),
+                       
                       ],
                     ),
                   ),

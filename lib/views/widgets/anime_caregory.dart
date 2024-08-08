@@ -6,45 +6,48 @@ class AnimeCategory extends StatelessWidget {
   final List<String> data;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(
-          builder: (context) {
-            return AnimeListCategory(Category: data[1],);
+    return  GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return AnimeListCategory(
+                  Category: data[1],
+                );
+              },
+            ));
           },
-        ));
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: const Color.fromARGB(200, 6, 68, 58),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: const Color.fromARGB(200, 6, 68, 58),
+              ),
+              width: 190,
+              height: 190,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Image.asset(
+                    data[0],
+                    height: 110,
+                    width: 110,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    data[1],
+                    style: const TextStyle(color: Colors.white, fontSize: 23),
+                  ),
+                ],
+              ),
+            ),
           ),
-          width: 190,
-          height: 190,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 15,
-              ),
-              Image.asset(
-                data[0],
-                height: 110,
-                width: 110,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                data[1],
-                style: const TextStyle(color: Colors.white, fontSize: 23),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+        );
+      
   }
 }
