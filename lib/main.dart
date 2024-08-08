@@ -9,21 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  Stripe.publishableKey=ApiKeys.punlishableKey;
-  runApp( MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => AuthCubit(),
-          ),
-          BlocProvider(
-            create: (context) => AnimeCubit(AnimeRepository(AnimeWebService())),
-          ),
-        ],
-        child: const MyApp(),
-      ),);
+  Stripe.publishableKey = ApiKeys.punlishableKey;
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

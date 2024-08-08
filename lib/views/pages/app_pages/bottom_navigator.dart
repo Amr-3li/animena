@@ -1,8 +1,12 @@
+import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
+import 'package:animena/data/repository/anime_repo.dart';
+import 'package:animena/data/wepServices/anime_web_ser.dart';
 import 'package:animena/views/pages/app_pages/Profile_page.dart';
 import 'package:animena/views/pages/app_pages/category_page.dart';
 import 'package:animena/views/pages/app_pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavigator extends StatefulWidget {
   const BottomNavigator({super.key});
@@ -48,7 +52,10 @@ class _BottomNavigatorState extends State<BottomNavigator> {
               label: "My profile",
             )
           ]),
-      body: Screens[myIndex],
+      body: BlocProvider(
+        create: (context) => AnimeCubit(AnimeRepository(AnimeWebService())),
+        child: Screens[myIndex],
+      ),
     );
   }
 }

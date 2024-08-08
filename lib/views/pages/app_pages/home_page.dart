@@ -1,6 +1,8 @@
 // ignore_for_file: non_constant_identifier_names, use_build_context_synchronously
 
 import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
+import 'package:animena/data/repository/anime_repo.dart';
+import 'package:animena/data/wepServices/anime_web_ser.dart';
 import 'package:animena/views/pages/app_pages/search_page.dart';
 import 'package:animena/views/widgets/all_anime.dart';
 import 'package:animena/views/widgets/appar_text.dart';
@@ -61,7 +63,10 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SearchPage(),
+                          builder: (context) => BlocProvider(
+                            create: (context) => AnimeCubit(AnimeRepository(AnimeWebService())),
+                            child:const SearchPage(),
+                          ),
                         ));
                   },
                   icon: const Icon(Icons.search),
