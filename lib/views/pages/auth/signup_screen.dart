@@ -16,7 +16,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   FirebaseAuth instance = FirebaseAuth.instance;
-  String? name, email, password, phone;
+  String name = "", email = "", password = "", phone = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,20 +70,20 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 30,
                   ),
                   textInputRegister(
-                    name: name!,
+                    name: name,
                     text: "Name",
                   ),
                   textInputRegister(
-                    name: email!,
+                    name: email,
                     text: "Email",
                   ),
                   textInputRegister(
-                    name: password!,
+                    name: password,
                     text: "Password",
                     obscureText: true,
                   ),
                   textInputRegister(
-                    name: phone!,
+                    name: phone,
                     text: "Phone",
                   ),
                   const SizedBox(
@@ -112,9 +112,9 @@ class _SignUpPageState extends State<SignUpPage> {
               fixedSize: WidgetStateProperty.all(const Size(350, 60))),
           onPressed: () async {
             try {
-              await PaymentManager.makePayment(200, "EGP");
+              // await PaymentManager.makePayment(200, "EGP");
               await BlocProvider.of<AuthCubit>(context)
-                  .signup(name!, email!, password!, phone!);
+                  .signup(name, email, password, phone);
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text("correct sign Up"),

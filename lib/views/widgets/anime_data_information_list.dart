@@ -1,6 +1,7 @@
 import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/views/widgets/anime_data_information.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AnimeDataInformationList extends StatelessWidget {
   const AnimeDataInformationList({super.key, required this.anime});
@@ -18,39 +19,37 @@ class AnimeDataInformationList extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             AnimeDataInformation(
                 text: "Start date", description: anime.startDate!),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             AnimeDataInformation(text: "End date", description: anime.endDate!),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             AnimeDataInformation(text: "Status", description: anime.status!),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             AnimeDataInformation(
                 text: "japanese name ", description: anime.nameJp!),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
-
-               const AnimeDataInformation(
-                  text: "Description ", description: ""),
-            const SizedBox(height: 10,),
+            const AnimeDataInformation(text: "Description ", description: ""),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
             Text(
               " ${anime.description!}",
               maxLines: 50,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Colors.white70, fontSize: 17),
-
+              style: TextStyle(color: Colors.white70, fontSize: 17.sp),
             ),
-
           ],
         ),
       ),

@@ -33,15 +33,35 @@ class AuthCubit extends Cubit<AuthState> {
         await SharedPreferences.getInstance();
     emit(RegisterLoading());
     try {
+      // Create user with email and password
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
+      // Store email in SharedPreferences
       await sharedPreferences.setString('email', email);
+
+      // Emit success state
       emit(RegisterSuccess());
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+
+      // Handle different FirebaseAuth exceptions
+      if (e.code == 'weak-password') {
+        errorMessage = 'The password provided is too weak.';
+      } else if (e.code == 'email-already-in-use') {
+        errorMessage = 'The account already exists for that email.';
+      } else {
+        errorMessage = 'An unknown error occurred.';
+      }
+
+      print(errorMessage);
+      emit(RegisterError(errorMessage));
     } catch (e) {
-      emit(RegisterError(e.toString()));
+      // Handle other types of exceptions
+      print(e.toString());
+      emit(RegisterError('An error occurred. Please try again.'));
     }
   }
 

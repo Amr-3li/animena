@@ -1,6 +1,7 @@
 import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/views/widgets/anime_Card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AnimeList extends StatelessWidget {
   const AnimeList({super.key, required this.allAnime});
@@ -10,9 +11,9 @@ class AnimeList extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: const ScrollPhysics(parent: ScrollPhysics()),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: 0.62,
+        childAspectRatio: 0.6.h,
         crossAxisSpacing: 1,
         mainAxisSpacing: 1,
       ),

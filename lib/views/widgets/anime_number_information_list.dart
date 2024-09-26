@@ -1,10 +1,11 @@
 import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/views/widgets/anime_number_information.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AnimeNumInformationList extends StatelessWidget {
-  const AnimeNumInformationList({super.key,required this.anime});
-   final  Anime anime;
+  const AnimeNumInformationList({super.key, required this.anime});
+  final Anime anime;
   @override
   Widget build(BuildContext context) {
     String rating =
@@ -13,32 +14,32 @@ class AnimeNumInformationList extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
-          const SizedBox(
-            width: 20,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.01,
           ),
           AnimeNumInformation(
             text: rating,
             name: "Rating",
-            icon: const Icon(
+            icon: Icon(
               Icons.star,
               color: Colors.yellow,
-              size: 30,
+              size: 30.sp,
             ),
           ),
-          const SizedBox(
-            width: 30,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.02,
           ),
           AnimeNumInformation(
             text: anime.favoritesCount!.toString(),
             name: "FavoriteCount",
-            icon: const Icon(
+            icon: Icon(
               Icons.favorite,
               color: Colors.grey,
-              size: 30,
+              size: 30.sp,
             ),
           ),
-          const SizedBox(
-            width: 30,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.02,
           ),
           AnimeNumInformation(
             text: anime.userCount.toString(),
@@ -47,7 +48,8 @@ class AnimeNumInformationList extends StatelessWidget {
               Icons.remove_red_eye,
               color: Colors.grey,
               size: 30,
-            ),)
+            ),
+          )
         ],
       ),
     );

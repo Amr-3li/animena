@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class AnimeWebService {
   Dio? dio;
   AnimeWebService() {
-    dio = new Dio();
+    dio =  Dio();
   }
   int countAll = 0;
 
@@ -22,7 +22,6 @@ class AnimeWebService {
       for (var item in items) {
         result.add(item['attributes']);
       }
-      print(result.length);
       return result;
     } on Exception catch (e) {
       print(e.toString());

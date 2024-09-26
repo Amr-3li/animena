@@ -9,6 +9,7 @@ import 'package:animena/views/widgets/appar_text.dart';
 import 'package:animena/views/widgets/spcific_anime.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../data/models/Anime_model.dart';
 
@@ -64,14 +65,15 @@ class _HomePageState extends State<HomePage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => BlocProvider(
-                            create: (context) => AnimeCubit(AnimeRepository(AnimeWebService())),
-                            child:const SearchPage(),
+                            create: (context) =>
+                                AnimeCubit(AnimeRepository(AnimeWebService())),
+                            child: const SearchPage(),
                           ),
                         ));
                   },
                   icon: const Icon(Icons.search),
                   color: Colors.white,
-                  iconSize: 30,
+                  iconSize: 30.sp,
                 ),
               )
             ],
@@ -81,15 +83,15 @@ class _HomePageState extends State<HomePage> {
               color: const Color.fromARGB(255, 8, 31, 8),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   state is AnimeMostFavoriteLoading && fav_animes.isEmpty
                       ? const Center(child: CircularProgressIndicator())
                       : Spicific_widget(
                           animes: fav_animes, name: "Most favorite Anime"),
-                  const Divider(
-                    height: 0.5,
+                  Divider(
+                    height: 0.5.h,
                     color: Colors.white,
                     endIndent: 50,
                     indent: 50,
@@ -102,14 +104,14 @@ class _HomePageState extends State<HomePage> {
                           animes: rating_animes,
                           name: "Most Rating Anime",
                         ),
-                  const Divider(
-                    height: 0.5,
+                  Divider(
+                    height: 0.5.h,
                     color: Colors.white,
                     endIndent: 50,
                     indent: 50,
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   const AllAnime(
                     name: "All Animes",

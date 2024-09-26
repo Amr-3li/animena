@@ -20,7 +20,7 @@ class AnimeDetailsView extends StatelessWidget {
               ? ApparText(name: anime.nameEn!)
               : ApparText(name: anime.nameEnJp!)),
       body: SingleChildScrollView(
-
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Stack(
@@ -30,13 +30,11 @@ class AnimeDetailsView extends StatelessWidget {
                 Row(
                   children: [
                     AnimePosterImage(name: anime.posterImage!),
-                    const SizedBox(
-                      width: 30,
-                    ),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.04),
                     Column(
                       children: [
-                        const SizedBox(
-                          height: 40,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.04,
                         ),
                         AnimeInformationName(name: " ${anime.nameEnJp}")
                       ],
@@ -45,14 +43,14 @@ class AnimeDetailsView extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             AnimeNumInformationList(anime: anime),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
-           AnimeDataInformationList(anime: anime)
+            AnimeDataInformationList(anime: anime)
           ],
         ),
       ),

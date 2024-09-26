@@ -5,6 +5,7 @@ import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/views/widgets/anime_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AllAnime extends StatefulWidget {
   const AllAnime({
@@ -51,13 +52,16 @@ class _AllAnimeState extends State<AllAnime> {
           children: [
             Text(
               "   ${widget.name}",
-              style: const TextStyle(fontSize: 23, color: Colors.white),
+              style: TextStyle(fontSize: 23.sp, color: Colors.white),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             state is AnimeLoading
                 ? const Center(child: CircularProgressIndicator())
                 : AnimeList(allAnime: allAnime),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             ElevatedButton(
                 style: const ButtonStyle(
@@ -66,13 +70,13 @@ class _AllAnimeState extends State<AllAnime> {
                 onPressed: () {
                   getAnimes();
                 },
-                child: const Row(
+                child: Row(
                   children: [
                     Text(
                       "more animes   ",
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 20.sp, color: Colors.white),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.arrow_forward,
                       color: Colors.white,
                     )

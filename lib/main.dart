@@ -1,12 +1,8 @@
-import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
-import 'package:animena/bloc/cubit/auth/auth_cubit.dart';
-import 'package:animena/data/repository/anime_repo.dart';
-import 'package:animena/data/wepServices/anime_web_ser.dart';
 import 'package:animena/initialPage.dart';
 import 'package:animena/stripe_payment/stripe_keys.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() async {
@@ -22,9 +18,16 @@ class MyApp extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Initialpage(),
+    return ScreenUtilInit(
+      designSize: Size(375, 812), // Set your design size here (e.g., iPhone 11)
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Initialpage(), // Ensure InitialPage is defined
+        );
+      },
     );
   }
 }
