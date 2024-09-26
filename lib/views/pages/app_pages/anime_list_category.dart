@@ -5,6 +5,7 @@ import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/views/widgets/anime_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AnimeListCategory extends StatefulWidget {
   const AnimeListCategory({super.key, required this.Category});
@@ -56,9 +57,8 @@ class _AnimeListCategoryState extends State<AnimeListCategory> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         AnimeList(allAnime: allAnime),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01),
                         ElevatedButton(
                             style: const ButtonStyle(
                                 backgroundColor: WidgetStatePropertyAll(
@@ -66,14 +66,14 @@ class _AnimeListCategoryState extends State<AnimeListCategory> {
                             onPressed: () {
                               getAnimes();
                             },
-                            child: const Row(
+                            child: Row(
                               children: [
                                 Text(
                                   "next   ",
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
+                                      fontSize: 20.sp, color: Colors.white),
                                 ),
-                                Icon(
+                                const Icon(
                                   Icons.arrow_forward,
                                   color: Colors.white,
                                 )

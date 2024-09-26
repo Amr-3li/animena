@@ -1,7 +1,6 @@
 import 'package:animena/bloc/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/data/repository/anime_repo.dart';
 import 'package:animena/data/wepServices/anime_web_ser.dart';
-import 'package:animena/main.dart';
 import 'package:animena/views/pages/app_pages/anime_list_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +32,6 @@ class AnimeCategory extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             color: const Color.fromARGB(200, 6, 68, 58),
           ),
-          width: 190.w,
           child: Column(
             children: [
               SizedBox(
@@ -50,6 +48,9 @@ class AnimeCategory extends StatelessWidget {
               Text(
                 data[1],
                 style: TextStyle(color: Colors.white, fontSize: 18.sp),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
             ],
           ),

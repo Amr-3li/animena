@@ -37,7 +37,7 @@ class CategoryPage extends StatelessWidget {
         body: GridView.builder(
           itemCount: categories.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2),
+              crossAxisCount: 2, crossAxisSpacing: 1, mainAxisSpacing: 1),
           itemBuilder: (context, index) {
             return AnimeCategory(data: categories[index]);
           },
