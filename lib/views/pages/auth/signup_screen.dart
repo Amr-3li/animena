@@ -111,14 +111,9 @@ class _SignUpPageState extends State<SignUpPage> {
               fixedSize: WidgetStateProperty.all(const Size(350, 60))),
           onPressed: () async {
             try {
-              // await PaymentManager.makePayment(200, "EGP");
+              //await PaymentManager.makePayment(200, "EGP");
               await BlocProvider.of<AuthCubit>(context)
                   .signup(name, email, password, phone);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("correct sign Up"),
-                ),
-              );
             } catch (e) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(

@@ -1,7 +1,11 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'dart:developer';
+
+import 'package:animena/core/exeption_services/firebase_exeption_handler.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,6 +13,7 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
   Future<void> login(String email, String password) async {
     final SharedPreferences sharedPreferences =
@@ -19,7 +24,6 @@ class AuthCubit extends Cubit<AuthState> {
         email: email,
         password: password,
       );
-
       await sharedPreferences.setString('email', email);
       emit(LoginSuccess());
     } catch (e) {
@@ -29,38 +33,23 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> signup(
       String name, String phone, String email, String password) async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
     emit(RegisterLoading());
+    final hasConnection = await InternetConnectionChecker().hasConnection;
+    if (!hasConnection) {
+      log('No internet connection');
+      emit(RegisterError('No internet connection'));
+      return;
+    }
     try {
-      // Create user with email and password
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-
-      // Store email in SharedPreferences
-      await sharedPreferences.setString('email', email);
-
-      // Emit success state
+      final userCredential = await firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
       emit(RegisterSuccess());
     } on FirebaseAuthException catch (e) {
-      String errorMessage;
-
-      // Handle different FirebaseAuth exceptions
-      if (e.code == 'weak-password') {
-        errorMessage = 'The password provided is too weak.';
-      } else if (e.code == 'email-already-in-use') {
-        errorMessage = 'The account already exists for that email.';
-      } else {
-        errorMessage = 'An unknown error occurred.';
-      }
-
-      print(errorMessage);
+      final errorMessage = FirebaseExeptionHandler.handleFirebaseAuthError(e);
+      log(errorMessage);
       emit(RegisterError(errorMessage));
     } catch (e) {
       // Handle other types of exceptions
-      print(e.toString());
       emit(RegisterError('An error occurred. Please try again.'));
     }
   }

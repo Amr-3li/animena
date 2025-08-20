@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "400120872345",
-    "project_id": "animena-501bf",
-    "storage_bucket": "animena-501bf.appspot.com"
+    "project_number": "90113081358",
+    "project_id": "robust-root-441008-k6",
+    "storage_bucket": "robust-root-441008-k6.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:400120872345:android:604e995cc95d96f0bde708",
+        "mobilesdk_app_id": "1:90113081358:android:b7e4971f216a9f6379fc5f",
         "android_client_info": {
           "package_name": "com.example.animena"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCeIV_mb2s5tqeOishhZLA_Biz-TgmUAO8"
+          "current_key": "AIzaSyA7M7G-Yi2G6PoZo8zSkPGmIFDn6nwWp4g"
         }
       ],
       "services": {

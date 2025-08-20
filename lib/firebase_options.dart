@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB792Hl5jxu3pXStYIXGrYV_1KNDtrIxmY',
-    appId: '1:400120872345:web:a12639913d068cabbde708',
-    messagingSenderId: '400120872345',
-    projectId: 'animena-501bf',
-    authDomain: 'animena-501bf.firebaseapp.com',
-    storageBucket: 'animena-501bf.appspot.com',
-    measurementId: 'G-MNG01YFR2B',
+    apiKey: 'AIzaSyCjwGE0n7t02PXJ7WGaK8GEfT5o4HJOi6Y',
+    appId: '1:90113081358:web:4cea774f795ea42179fc5f',
+    messagingSenderId: '90113081358',
+    projectId: 'robust-root-441008-k6',
+    authDomain: 'robust-root-441008-k6.firebaseapp.com',
+    storageBucket: 'robust-root-441008-k6.firebasestorage.app',
+    measurementId: 'G-9060WSC17B',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCeIV_mb2s5tqeOishhZLA_Biz-TgmUAO8',
-    appId: '1:400120872345:android:084d50e96cf13e39bde708',
-    messagingSenderId: '400120872345',
-    projectId: 'animena-501bf',
-    storageBucket: 'animena-501bf.appspot.com',
+    apiKey: 'AIzaSyA7M7G-Yi2G6PoZo8zSkPGmIFDn6nwWp4g',
+    appId: '1:90113081358:android:b7e4971f216a9f6379fc5f',
+    messagingSenderId: '90113081358',
+    projectId: 'robust-root-441008-k6',
+    storageBucket: 'robust-root-441008-k6.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCvE8GLYhn3kFGW8Aybkc-jfdTKPESIEk8',
-    appId: '1:400120872345:ios:171a9c594505b0d0bde708',
-    messagingSenderId: '400120872345',
-    projectId: 'animena-501bf',
-    storageBucket: 'animena-501bf.appspot.com',
+    apiKey: 'AIzaSyAhMjihci7pbxAIdaPIW6Sp-1-coQP9-SE',
+    appId: '1:90113081358:ios:320319769701bd0579fc5f',
+    messagingSenderId: '90113081358',
+    projectId: 'robust-root-441008-k6',
+    storageBucket: 'robust-root-441008-k6.firebasestorage.app',
     iosBundleId: 'com.example.animena',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCvE8GLYhn3kFGW8Aybkc-jfdTKPESIEk8',
-    appId: '1:400120872345:ios:171a9c594505b0d0bde708',
-    messagingSenderId: '400120872345',
-    projectId: 'animena-501bf',
-    storageBucket: 'animena-501bf.appspot.com',
+    apiKey: 'AIzaSyAhMjihci7pbxAIdaPIW6Sp-1-coQP9-SE',
+    appId: '1:90113081358:ios:320319769701bd0579fc5f',
+    messagingSenderId: '90113081358',
+    projectId: 'robust-root-441008-k6',
+    storageBucket: 'robust-root-441008-k6.firebasestorage.app',
     iosBundleId: 'com.example.animena',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyB792Hl5jxu3pXStYIXGrYV_1KNDtrIxmY',
-    appId: '1:400120872345:web:4c2b2e403295815ebde708',
-    messagingSenderId: '400120872345',
-    projectId: 'animena-501bf',
-    authDomain: 'animena-501bf.firebaseapp.com',
-    storageBucket: 'animena-501bf.appspot.com',
-    measurementId: 'G-D2PX70XM76',
+    apiKey: 'AIzaSyCjwGE0n7t02PXJ7WGaK8GEfT5o4HJOi6Y',
+    appId: '1:90113081358:web:de00390193a16a4879fc5f',
+    messagingSenderId: '90113081358',
+    projectId: 'robust-root-441008-k6',
+    authDomain: 'robust-root-441008-k6.firebaseapp.com',
+    storageBucket: 'robust-root-441008-k6.firebasestorage.app',
+    measurementId: 'G-WNY44L2JZ0',
   );
 }

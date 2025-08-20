@@ -3,7 +3,15 @@ import 'package:dio/dio.dart';
 class AnimeWebService {
   Dio? dio;
   AnimeWebService() {
-    dio = Dio();
+    dio = Dio(
+      BaseOptions(
+        baseUrl: "https://kitsu.io/api/edge",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/vnd.api+json",
+        },
+      ),
+    );
   }
   int countAll = 0;
 
