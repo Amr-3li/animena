@@ -7,8 +7,8 @@ class Anime {
   String? averageRating;
   String? startDate;
   String? endDate;
-  String? posterImage="";
-  String? coverImage="";
+  String? posterImage = "";
+  String? coverImage = "";
   String? status;
   int? popularityRank;
   int? userCount;
@@ -28,7 +28,7 @@ class Anime {
     required this.userCount,
     required this.favoritesCount,
   });
-  Anime.fromJson(Map<String, dynamic> json){
+  Anime.fromJson(Map<String, dynamic> json) {
     nameEn = json['titles']['en'];
     nameEnJp = json['titles']['en_jp'];
     nameJp = json['titles']['ja_jp'];
@@ -42,5 +42,24 @@ class Anime {
     popularityRank = json['popularityRank'];
     userCount = json['userCount'];
     favoritesCount = json['favoritesCount'];
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'titles': {
+        'en': nameEn,
+        'en_jp': nameEnJp,
+        'ja_jp': nameJp,
+      },
+      'description': description,
+      'averageRating': averageRating,
+      'startDate': startDate,
+      'endDate': endDate,
+      'posterImage': {'large': posterImage},
+      'coverImage': {'large': coverImage},
+      'status': status,
+      'popularityRank': popularityRank,
+      'userCount': userCount,
+      'favoritesCount': favoritesCount,
+    };
   }
 }

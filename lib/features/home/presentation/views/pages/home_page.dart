@@ -2,7 +2,7 @@
 
 import 'package:animena/features/home/presentation/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/features/home/data/repository/anime_repo.dart';
-import 'package:animena/features/home/data/wepServices/anime_web_ser.dart';
+import 'package:animena/features/home/data/services/anime_web_ser.dart';
 import 'package:animena/features/search/presentation/views/page/search_page.dart';
 import 'package:animena/features/home/presentation/views/widgets/all_anime.dart';
 import 'package:animena/features/home/presentation/views/widgets/appar_text.dart';
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
             title: const Padding(
               padding: EdgeInsets.only(left: 20),
-              child: ApparText(name: "Animena"),
+              child: ApparText(name: "Home"),
             ),
             backgroundColor: const Color.fromARGB(255, 22, 89, 22),
             actions: [

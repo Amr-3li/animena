@@ -30,22 +30,6 @@ class AnimeCubit extends Cubit<AnimeState> {
     }
   }
 
-  Future<List<Anime>> getCategoryAnimes(String s) async {
-    emit(AnimeCategoryLoading());
-    try {
-      List<Anime> animes = [];
-      await animeRepository.getCategoryAnimes(s).then((value) {
-        emit(AnimeCategoryLoaded(value));
-        animes = value;
-      });
-
-      return animes;
-    } on Exception catch (e) {
-      AnimeCategoryError(e.toString());
-      return [];
-    }
-  }
-
   Future<List<Anime>> getAllSearchAnimes(String s) async {
     emit(AnimeSearchLoading());
     try {

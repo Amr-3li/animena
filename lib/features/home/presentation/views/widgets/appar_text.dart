@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ApparText extends StatelessWidget {
-  const ApparText({super.key,required this.name});
+  const ApparText({super.key, required this.name});
   final String name;
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,8 @@ class ApparText extends StatelessWidget {
       name,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
     );
   }
 }

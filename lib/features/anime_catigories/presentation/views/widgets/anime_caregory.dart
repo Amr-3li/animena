@@ -1,6 +1,6 @@
-import 'package:animena/features/home/presentation/cubit/Anime_data/anime_cubit.dart';
-import 'package:animena/features/home/data/repository/anime_repo.dart';
-import 'package:animena/features/home/data/wepServices/anime_web_ser.dart';
+import 'package:animena/core/dependcy_injection/getit.dart';
+import 'package:animena/features/anime_catigories/data/repo/get_anime_by_catigory_repo.dart';
+import 'package:animena/features/anime_catigories/presentation/cubit/animes_by_catigory/animes_by_catigory_cubit.dart';
 import 'package:animena/features/anime_catigories/presentation/views/pages/anime_list_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +17,8 @@ class AnimeCategory extends StatelessWidget {
           builder: (context) {
             return BlocProvider(
               create: (context) =>
-                  AnimeCubit(AnimeRepository(AnimeWebService())),
+                  AnimesByCatigoryCubit(getIt<GetAnimeByCatigoryRepo>())
+                    ..fetchAnimesByCategory(data[1]),
               child: AnimeListCategory(
                 Category: data[1],
               ),

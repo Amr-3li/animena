@@ -64,7 +64,7 @@ class AnimeCard extends StatelessWidget {
               ),
               anime!.nameEn != ""
                   ? Text(
-                      "  ${anime!.nameEn!}",
+                      "  ${anime!.nameEn}",
                       style: TextStyle(color: Colors.white, fontSize: 11.sp),
                       maxLines: 1,
                       overflow: TextOverflow.fade,

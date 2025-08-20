@@ -1,3 +1,7 @@
+import 'package:animena/core/dependcy_injection/getit.dart';
+import 'package:animena/features/anime_catigories/data/repo/get_anime_by_catigory_repo_impl.dart';
+import 'package:animena/features/anime_catigories/data/services/get_anime_by_catigory.dart';
+import 'package:animena/features/anime_catigories/data/services/get_anime_by_catigory_impl.dart';
 import 'package:animena/initialPage.dart';
 import 'package:animena/stripe_payment/stripe_keys.dart';
 import 'package:device_preview/device_preview.dart';
@@ -11,6 +15,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Stripe.publishableKey = ApiKeys.punlishableKey;
+
+  setupGetIt();
+  await GetAnimeByCatigoryRepoImpl(getIt<GetAnimeByCatigory>())
+      .getAnimeByCategory('action');
+  await GetAnimeByCatigoryRepoImpl(getIt<GetAnimeByCatigory>())
+      .getAnimeByCategory('action');
   runApp(DevicePreview(
     enabled: !kReleaseMode,
     builder: (context) => const MyApp(),
@@ -24,7 +34,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-     
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {

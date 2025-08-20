@@ -1,4 +1,4 @@
-import 'package:animena/features/home/data/wepServices/anime_web_ser.dart';
+import 'package:animena/features/home/data/services/anime_web_ser.dart';
 import '../models/Anime_model.dart';
 
 class AnimeRepository {
@@ -63,33 +63,6 @@ class AnimeRepository {
   Future<List<Anime>> getRatingAnimes() async {
     List<Anime> result = [];
     List<dynamic> animes = await animeWebService.getRatingAnime();
-
-    for (var a in animes) {
-      Anime anime = Anime(
-        nameEn: a['titles']['en'] ?? '',
-        nameEnJp: a['titles']['en_jp'] ?? '',
-        nameJp: a['titles']['ja_jp'] ?? '',
-        description: a['description'] ?? '',
-        averageRating: a['averageRating'] ?? '0',
-        startDate: a['startDate'] ?? '',
-        endDate: a['endDate'] ?? '',
-        posterImage:
-            a['posterImage'] != null ? a['posterImage']['original'] ?? '' : '',
-        coverImage:
-            a['coverImage'] != null ? a['coverImage']['original'] ?? '' : '',
-        status: a['status'] ?? '',
-        popularityRank: a['popularityRank'] ?? 0,
-        userCount: a['userCount'] ?? 0,
-        favoritesCount: a['favoritesCount'] ?? 0,
-      );
-      result.add(anime);
-    }
-    return result;
-  }
-
-  Future<List<Anime>> getCategoryAnimes(String s) async {
-    List<Anime> result = [];
-    List<dynamic> animes = await animeWebService.getCategoryAnime(s);
 
     for (var a in animes) {
       Anime anime = Anime(

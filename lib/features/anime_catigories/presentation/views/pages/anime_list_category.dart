@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:animena/features/home/presentation/cubit/Anime_data/anime_cubit.dart';
+import 'package:animena/features/anime_catigories/presentation/cubit/animes_by_catigory/animes_by_catigory_cubit.dart';
 import 'package:animena/features/home/data/models/Anime_model.dart';
 import 'package:animena/features/home/presentation/views/widgets/anime_list.dart';
 import 'package:flutter/material.dart';
@@ -15,32 +15,18 @@ class AnimeListCategory extends StatefulWidget {
 }
 
 class _AnimeListCategoryState extends State<AnimeListCategory> {
-  AnimeCubit? animeCubit;
-  List<Anime> allAnime = [];
-
-  @override
-  void initState() {
-    super.initState();
-    animeCubit = BlocProvider.of<AnimeCubit>(context);
-
-    getAnimes();
-  }
-
-  Future getAnimes() async {
-    try {
-      List<Anime> l = await animeCubit!.getCategoryAnimes(widget.Category);
-      setState(() {
-        allAnime.addAll(l);
-      });
-    } catch (e) {
-      // Handle errors here, e.g., show a message to the user
-      print('Failed to fetch animes: $e');
-    }
-  }
-
+  List<Anime> animes = [];
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AnimeCubit, AnimeState>(
+    return BlocConsumer<AnimesByCatigoryCubit, AnimesByCatigoryState>(
+      listener: (context, state) {
+        if (state is AnimesByCatigoryError) {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text("Failed to load animes by category")));
+        } else if (state is AnimesByCatigoryLoaded) {
+          animes.addAll(state.animes);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -48,41 +34,42 @@ class _AnimeListCategoryState extends State<AnimeListCategory> {
             backgroundColor: const Color.fromARGB(255, 22, 89, 22),
           ),
           backgroundColor: const Color.fromARGB(255, 8, 31, 8),
-          body: state is AnimeCategoryLoading || allAnime.isEmpty
-              ? const Center(child: CircularProgressIndicator())
-              : SingleChildScrollView(
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AnimeList(allAnime: allAnime),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01),
-                        ElevatedButton(
-                            style: const ButtonStyle(
-                                backgroundColor: WidgetStatePropertyAll(
-                                    Color.fromARGB(255, 8, 31, 8))),
-                            onPressed: () {
-                              getAnimes();
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  "next   ",
-                                  style: TextStyle(
-                                      fontSize: 20.sp, color: Colors.white),
-                                ),
-                                const Icon(
-                                  Icons.arrow_forward,
-                                  color: Colors.white,
-                                )
-                              ],
-                            )),
-                      ],
-                    ),
-                  ),
-                ),
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AnimeList(allAnime: animes),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                  state is AnimesByCatigoryLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : ElevatedButton(
+                          style: const ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                  Color.fromARGB(255, 8, 31, 8))),
+                          onPressed: () async {
+                            await context
+                                .read<AnimesByCatigoryCubit>()
+                                .fetchAnimesByCategory(widget.Category);
+                          },
+                          child: Row(
+                            children: [
+                              Text(
+                                "next   ",
+                                style: TextStyle(
+                                    fontSize: 20.sp, color: Colors.white),
+                              ),
+                              const Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                              )
+                            ],
+                          )),
+                ],
+              ),
+            ),
+          ),
         );
       },
     );
