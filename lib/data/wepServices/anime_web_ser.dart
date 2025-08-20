@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class AnimeWebService {
   Dio? dio;
   AnimeWebService() {
-    dio =  Dio();
+    dio = Dio();
   }
   int countAll = 0;
 
@@ -28,16 +28,17 @@ class AnimeWebService {
       return [];
     }
   }
+
   int countCat = 0;
 
-  Future<List<dynamic>> getCategoryAnime(String s) async {
+  Future<List<dynamic>> getCategoryAnime(String category) async {
     try {
       List<dynamic> result = [];
       countCat++;
       int count1 = (countCat) * 18;
 
       Response response1 = await dio!.get(
-          "https://kitsu.io/api/edge/anime?page[limit]=18&page[offset]=$count1&filter[categories]=$s");
+          "https://kitsu.io/api/edge/anime?page[limit]=18&page[offset]=$count1&filter[categories]=$category");
 
       List<dynamic> items = [];
       items.addAll(response1.data["data"]);

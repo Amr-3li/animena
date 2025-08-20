@@ -5,6 +5,7 @@ import 'package:animena/views/pages/auth/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -76,50 +77,46 @@ class _ProfilePageState extends State<ProfilePage> {
                 return Scaffold(
                   backgroundColor: const Color.fromARGB(255, 8, 31, 8),
                   appBar: AppBar(
-                    title: const Center(
+                    title: Center(
                         child: Text(
                       "welcome ",
-                      style: TextStyle(color: Colors.white, fontSize: 29),
+                      style: TextStyle(color: Colors.white, fontSize: 29.sp),
                     )),
                     backgroundColor: const Color.fromARGB(255, 22, 89, 22),
                   ),
                   body: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        height: 50,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       Container(
                         decoration: BoxDecoration(
                             color: Colors.white70,
                             borderRadius: BorderRadius.circular(100)),
-                        height: 200,
-                        width: 200,
+                        height: 200.h,
+                        width: 200.w,
                         child: ClipRRect(
                           child: Image.asset(
                               "assets/Images/illustration-businessman.png"),
                         ),
                       ),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
                       ),
                       Text(
                         "email : $email",
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 30),
+                        style: TextStyle(color: Colors.white, fontSize: 28.sp),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const SizedBox(
-                        height: 100,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
                       ),
                       state is LogoutLoading
                           ? const Center(child: CircularProgressIndicator())
                           : ElevatedButton(
-                              style: const ButtonStyle(
-                                  fixedSize:
-                                      WidgetStatePropertyAll(Size(300, 50))),
+                              style: ButtonStyle(
+                                  fixedSize: WidgetStatePropertyAll(
+                                      Size(300.w, 50.h))),
                               onPressed: () async {
                                 try {
                                   BlocProvider.of<AuthCubit>(context).logout();
@@ -135,9 +132,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                   print(e.code);
                                 }
                               },
-                              child: const Text(
+                              child: Text(
                                 "log out",
-                                style: TextStyle(fontSize: 25),
+                                style: TextStyle(fontSize: 25.sp),
                               ))
                     ],
                   ),

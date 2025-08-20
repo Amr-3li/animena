@@ -28,6 +28,7 @@ class AnimeCategory extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Container(
+          height: 300.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: const Color.fromARGB(200, 6, 68, 58),
@@ -35,7 +36,7 @@ class AnimeCategory extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               Image.asset(
                 data[0],
@@ -43,7 +44,7 @@ class AnimeCategory extends StatelessWidget {
                 color: Colors.white,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               Text(
                 data[1],

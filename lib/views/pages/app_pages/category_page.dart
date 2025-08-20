@@ -7,6 +7,7 @@ import 'package:animena/views/widgets/anime_caregory.dart';
 import 'package:animena/views/widgets/appar_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryPage extends StatelessWidget {
   List<List<String>> categories = [
@@ -36,8 +37,11 @@ class CategoryPage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 8, 31, 8),
         body: GridView.builder(
           itemCount: categories.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, crossAxisSpacing: 1, mainAxisSpacing: 1),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 1,
+              crossAxisSpacing: 1,
+              mainAxisExtent: 200.h),
           itemBuilder: (context, index) {
             return AnimeCategory(data: categories[index]);
           },

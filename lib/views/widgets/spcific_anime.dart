@@ -1,6 +1,7 @@
 import 'package:animena/data/models/Anime_model.dart';
 import 'package:animena/views/widgets/anime_Card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: camel_case_types
 class Spicific_widget extends StatelessWidget {
@@ -13,21 +14,20 @@ class Spicific_widget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         width: double.infinity,
-        height: 270,
+        height: 300.h,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             Text(
+            Text(
               "   $name",
-              style: const TextStyle(fontSize: 23, color: Colors.white),
-            ),
-            const SizedBox(
-              height: 10,
+              style: TextStyle(fontSize: 23.sp, color: Colors.white),
             ),
             SizedBox(
-              height: 210,
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.296,
               child: ListView.builder(
-
                 scrollDirection: Axis.horizontal,
                 itemCount: animes!.length,
                 itemBuilder: (context, index) {

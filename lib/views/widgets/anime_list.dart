@@ -13,7 +13,7 @@ class AnimeList extends StatelessWidget {
       physics: const ScrollPhysics(parent: ScrollPhysics()),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: 0.6.h,
+        childAspectRatio: 0.5.w,
         crossAxisSpacing: 1,
         mainAxisSpacing: 1,
       ),
