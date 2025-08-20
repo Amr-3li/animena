@@ -1,5 +1,5 @@
 import 'package:animena/features/home/data/models/Anime_model.dart';
-import 'package:animena/features/anime_details/presentation/views/widgets/anime_data_information.dart';
+import 'package:animena/features/home/presentation/views/widgets/anime_data_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

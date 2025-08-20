@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, use_build_context_synchronously
 
+import 'package:animena/features/home/data/models/Anime_model.dart';
 import 'package:animena/features/home/presentation/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/features/home/data/repository/anime_repo.dart';
 import 'package:animena/features/home/data/services/anime_web_ser.dart';
@@ -10,8 +11,6 @@ import 'package:animena/features/home/presentation/views/widgets/spcific_anime.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../data/models/Anime_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

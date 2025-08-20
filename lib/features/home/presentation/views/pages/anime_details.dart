@@ -1,9 +1,9 @@
 import 'package:animena/features/home/data/models/Anime_model.dart';
-import 'package:animena/features/anime_details/presentation/views/widgets/anime_cover_mage.dart';
-import 'package:animena/features/anime_details/presentation/views/widgets/anime_data_information_list.dart';
-import 'package:animena/features/anime_details/presentation/views/widgets/anime_number_information_list.dart';
-import 'package:animena/features/anime_details/presentation/views/widgets/anime_name.dart';
-import 'package:animena/features/anime_details/presentation/views/widgets/anime_poster_image.dart';
+import 'package:animena/features/home/presentation/views/widgets/anime_cover_mage.dart';
+import 'package:animena/features/home/presentation/views/widgets/anime_data_information_list.dart';
+import 'package:animena/features/home/presentation/views/widgets/anime_number_information_list.dart';
+import 'package:animena/features/home/presentation/views/widgets/anime_name.dart';
+import 'package:animena/features/home/presentation/views/widgets/anime_poster_image.dart';
 import 'package:animena/features/home/presentation/views/widgets/appar_text.dart';
 import 'package:flutter/material.dart';
 

@@ -1,11 +1,10 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:animena/features/home/data/models/Anime_model.dart';
 import 'package:animena/features/home/data/repository/anime_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
-import '../../../data/models/Anime_model.dart';
 
 part 'anime_state.dart';
 

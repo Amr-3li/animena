@@ -1,6 +1,6 @@
 // ignore: file_names
+import 'package:animena/features/home/presentation/views/pages/anime_details.dart';
 import 'package:animena/features/home/data/models/Anime_model.dart';
-import 'package:animena/features/anime_details/presentation/views/page/anime_details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
