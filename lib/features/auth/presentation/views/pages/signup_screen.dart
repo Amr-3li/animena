@@ -1,7 +1,10 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:animena/core/dependcy_injection/getit.dart';
+import 'package:animena/features/auth/data/repository/auth_repo.dart';
 import 'package:animena/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:animena/features/navigation/bottom_navigator.dart';
+import 'package:animena/core/helper/payment_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 8, 31, 8),
       body: BlocProvider(
-        create: (context) => AuthCubit(),
+        create: (context) => AuthCubit(getIt<AuthRepo>()),
         child: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is RegisterSuccess) {
@@ -111,7 +114,7 @@ class _SignUpPageState extends State<SignUpPage> {
               fixedSize: WidgetStateProperty.all(const Size(350, 60))),
           onPressed: () async {
             try {
-              //await PaymentManager.makePayment(200, "EGP");
+              await PaymentManager.makePayment(200, "EGP");
               await BlocProvider.of<AuthCubit>(context)
                   .signup(name, email, password, phone);
             } catch (e) {

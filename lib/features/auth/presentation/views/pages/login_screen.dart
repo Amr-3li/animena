@@ -1,3 +1,5 @@
+import 'package:animena/core/dependcy_injection/getit.dart';
+import 'package:animena/features/auth/data/repository/auth_repo.dart';
 import 'package:animena/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:animena/features/auth/presentation/views/pages/signup_screen.dart';
 import 'package:animena/features/navigation/bottom_navigator.dart';
@@ -21,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
     FirebaseAuth instance = FirebaseAuth.instance;
 
     return BlocProvider(
-      create: (context) => AuthCubit(),
+      create: (context) => AuthCubit(getIt<AuthRepo>()),
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is LoginSuccess) {

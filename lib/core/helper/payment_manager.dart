@@ -1,4 +1,4 @@
-import 'package:animena/stripe_payment/stripe_keys.dart';
+import 'package:animena/core/constants/secrets.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
@@ -29,7 +29,7 @@ abstract class PaymentManager {
       'https://api.stripe.com/v1/payment_intents',
       options: Options(
         headers: {
-          'authorization': 'Bearer ${ApiKeys.secretKey}',
+          'authorization': 'Bearer ${secretKey}',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
       ),

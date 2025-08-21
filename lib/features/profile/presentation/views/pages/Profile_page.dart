@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:animena/core/dependcy_injection/getit.dart';
+import 'package:animena/features/auth/data/repository/auth_repo.dart';
 import 'package:animena/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:animena/features/auth/presentation/views/pages/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -57,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           )
         : BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(getIt<AuthRepo>()),
             child: BlocConsumer<AuthCubit, AuthState>(
               listener: (context, state) {
                 if (state is LogoutSuccess) {
