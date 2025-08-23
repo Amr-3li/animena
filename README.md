@@ -82,13 +82,7 @@ Your project follows **Clean Architecture** with clear separation of concerns:
         <img src="readme_images/signUpPayment.png" width="200" alt="Signup Payment">
         <br><b>Signup Payment</b>
       </td>     
-    </tr>
-    <tr>
-      <td align="center" colspan="3">
-        <img src="readme_images/tvs_images/other_tv_details_screen.png" width="200" alt="App Register">
-        <br><b>App Register</b>
-      </td>
-    </tr>
+    </tr>   
   </table>
 </div>
 
@@ -122,4 +116,4 @@ Your project follows **Clean Architecture** with clear separation of concerns:
 ## 👨‍💻 Author
 
 ### Developed by Amr Ali 🚀
-https://github.com/Amr-3li | https://www.linkedin.com/in/amr-ali1/
+[GitHub](https://github.com/Amr-3li) | [LinkedIn](https://www.linkedin.com/in/amr-ali1/)
