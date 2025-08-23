@@ -6,6 +6,52 @@ Premium users can register through **Stripe payment integration**.
 
 ---
 
+## 📸 Screenshots
+### 📺 App Register
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="readme_images/signIn.png" width="200" alt="SignIn">
+        <br><b>SignIn</b>
+      </td>
+      <td align="center">
+        <img src="readme_images/signUp.png" width="200" alt="Sign Up">
+        <br><b>Sign Up</b>
+      </td>
+      <td align="center">
+        <img src="readme_images/signUpPayment.png" width="200" alt="Signup Payment">
+        <br><b>Signup Payment</b>
+      </td>     
+    </tr>   
+  </table>
+</div>
+
+### 🎬 App Features   
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="readme_images/home.png" width="200" alt="Home">
+        <br><b>Home Screen</b>
+      </td>
+      <td align="center">
+        <img src="readme_images/search.png" width="200" alt="Search">
+        <br><b>Search Main</b>
+      </td>
+      <td align="center">
+        <img src="readme_images/details.png" width="200" alt="Anime Details">
+        <br><b>Anime Details</b>
+      </td>
+      <td align="center">
+        <img src="readme_images/catigories.png" width="200" alt="Catigories Page">
+        <br><b>Catigories Page</b>
+      </td>
+    </tr>
+  </table>
+</div>
+---
+
 ## ✨ Features
 
 - 🔥 Browse trending, top-rated, and most-viewed anime.  
@@ -64,51 +110,6 @@ Your project follows **Clean Architecture** with clear separation of concerns:
    git clone https://github.com/your-username/animena.git
    cd animena
 
----
-## 📸 Screenshots
-### 📺 App Register
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="readme_images/signIn.png" width="200" alt="SignIn">
-        <br><b>SignIn</b>
-      </td>
-      <td align="center">
-        <img src="readme_images/signUp.png" width="200" alt="Sign Up">
-        <br><b>Sign Up</b>
-      </td>
-      <td align="center">
-        <img src="readme_images/signUpPayment.png" width="200" alt="Signup Payment">
-        <br><b>Signup Payment</b>
-      </td>     
-    </tr>   
-  </table>
-</div>
-
-### 🎬 App Features   
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="readme_images/home.png" width="200" alt="Home">
-        <br><b>Home Screen</b>
-      </td>
-      <td align="center">
-        <img src="readme_images/search.png" width="200" alt="Search">
-        <br><b>Search Main</b>
-      </td>
-      <td align="center">
-        <img src="readme_images/details.png" width="200" alt="Anime Details">
-        <br><b>Anime Details</b>
-      </td>
-      <td align="center">
-        <img src="readme_images/catigories.png" width="200" alt="Catigories Page">
-        <br><b>Catigories Page</b>
-      </td>
-    </tr>
-  </table>
-</div>
 ---
 
 
