@@ -36,15 +36,15 @@ Your project follows **Clean Architecture** with clear separation of concerns:
     ┣ features/ # Each feature is modular
     ┃ ┣ auth/ # Authentication (login/register)
     ┃ ┗ home/ # Home & anime discovery
-    ┃ ┣ data/ # Data Layer
-    ┃ ┃ ┣ models/ # Data models
-    ┃ ┃ ┣ repository/ # Repository (data sources)
-    ┃ ┃ ┗ services/ # API/Service calls
-    ┃ ┗ presentation/ # Presentation Layer
-    ┃ ┣ cubit/Anime_data # State Management (Cubit/BLoC)
-    ┃ ┗ views/ # Screens/Views
-    ┃ ┣ pages/ # Pages
-    ┃ ┗ widgets/ # UI Widgets
+    ┃   ┣ data/ # Data Layer
+    ┃   ┃ ┣ models/ # Data models
+    ┃   ┃ ┣ repository/ # Repository (data sources)
+    ┃   ┃ ┗ services/ # API/Service calls
+    ┃   ┗ presentation/ # Presentation Layer
+    ┃     ┣ cubit/Anime_data # State Management (Cubit/BLoC)
+    ┃     ┗ views/ # Screens/Views
+    ┃       ┣ pages/ # Pages
+    ┃       ┗ widgets/ # UI Widgets
     ┗ main.dart # Entry point
 
 
