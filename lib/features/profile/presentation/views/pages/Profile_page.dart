@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:animena/core/dependcy_injection/getit.dart';
 import 'package:animena/features/auth/data/repository/auth_repo.dart';
 import 'package:animena/features/auth/presentation/cubit/auth/auth_cubit.dart';

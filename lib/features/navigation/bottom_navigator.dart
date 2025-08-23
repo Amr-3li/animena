@@ -1,7 +1,7 @@
 import 'package:animena/features/home/presentation/cubit/Anime_data/anime_cubit.dart';
 import 'package:animena/features/home/data/repository/anime_repo.dart';
 import 'package:animena/features/home/data/services/anime_web_ser.dart';
-import 'package:animena/features/profile/presentation/views/pages/Profile_page.dart';
+import 'package:animena/features/profile/presentation/views/pages/profile_page.dart';
 import 'package:animena/features/anime_catigories/presentation/views/pages/category_page.dart';
 import 'package:animena/features/home/presentation/views/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';

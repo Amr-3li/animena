@@ -1,7 +1,6 @@
 import 'package:animena/core/exeption_services/firebase_exeption_handler.dart';
 import 'package:animena/core/services/sharedpreference_singelton.dart';
 import 'package:animena/features/auth/data/services/auth_serv.dart';
-import 'package:animena/features/profile/data/model/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
