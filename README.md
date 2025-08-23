@@ -67,7 +67,7 @@ lib/
 
 
 ## 📸 Screenshots
-### 📺 TV Shows
+### 📺 App Register
 <div align="center">
   <table>
     <tr>
