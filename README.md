@@ -30,7 +30,7 @@ Premium users can register through **Stripe payment integration**.
 ## 📂 Project Structure
 
 Your project follows **Clean Architecture** with clear separation of concerns:
-
+```
 lib/
 ┣ core/ # Core utilities, themes, constants
 ┣ features/ # Each feature is modular
@@ -64,12 +64,7 @@ lib/
    git clone https://github.com/your-username/animena.git
    cd animena
 
-🔑 Environment Setup
-    You’ll need to configure environment variables / constants for APIs, Firebase, and Stripe:
 
-    API_BASE_URL=your_api_url
-    STRIPE_PUBLIC_KEY=your_stripe_key
-    FIREBASE_CONFIG=your_firebase_config
 
 ## 📸 Screenshots
 ### 📺 TV Shows
@@ -124,6 +119,7 @@ lib/
 
 
 
-👨‍💻 Author
-Developed by Amr Ali 🚀
+## 👨‍💻 Author
+
+### Developed by Amr Ali 🚀
 https://github.com/Amr-3li | https://www.linkedin.com/in/amr-ali1/
