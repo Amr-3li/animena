@@ -30,7 +30,7 @@ Premium users can register through **Stripe payment integration**.
 ## 📂 Project Structure
 
 Your project follows **Clean Architecture** with clear separation of concerns:
-    ```bash
+    ```
         lib/
         ┣ core/ # Core utilities, themes, constants
         ┣ features/ # Each feature is modular
